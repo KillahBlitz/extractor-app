@@ -1,3 +1,0 @@
-PySide6
-pydantic==2.11
-pandas==2.2.3
