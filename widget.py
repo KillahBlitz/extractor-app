@@ -1,6 +1,6 @@
 import sys
 # Configurar rutas del proyecto
-from config import setup_project_paths
+from config.config import setup_project_paths
 setup_project_paths()
 
 from PySide6.QtWidgets import QApplication, QMainWindow, QWidget, QMessageBox

@@ -62,16 +62,16 @@ pip install -r assets/requirements.txt
 
 ### 5. Configurar Variables de Entorno
 
-El proyecto incluye scripts automáticos para configurar el entorno:
+El proyecto incluye scripts automáticos para configurar el entorno ubicados en la carpeta `config/`:
 
 #### **PowerShell (Recomendado)**
 ```powershell
-.\setup_env.ps1
+config\setup_env.ps1
 ```
 
 #### **CMD/Batch**
 ```cmd
-setup_env.bat
+config\setup_env.bat
 ```
 
 #### **Manual (si es necesario)**
@@ -85,8 +85,8 @@ $env:PYTHONPATH = "$(Get-Location)\src"
 
 #### **Método 1: Con configuración automática**
 ```powershell
-# Ejecutar script de configuración
-.\setup_env.ps1
+# Ejecutar script de configuración desde config/
+config\setup_env.ps1
 
 # Ejecutar aplicación
 python widget.py
@@ -116,11 +116,12 @@ python src\Scripts\extraction_data\class_extraction.py
 ```
 extractor-app/
 ├── 📄 README.md                 # Este archivo
-├── 📄 config.py                 # Configuración del proyecto
 ├── 📄 widget.py                 # Aplicación principal
-├── 📄 setup_env.ps1             # Script de configuración (PowerShell)
-├── 📄 setup_env.bat             # Script de configuración (Batch)
 ├── 📄 .env                      # Variables de entorno
+├──  config/                   # Configuración del proyecto
+│   ├── 📄 config.py             # Configuración central
+│   ├── 📄 setup_env.ps1         # Script de configuración (PowerShell)
+│   └── 📄 setup_env.bat         # Script de configuración (Batch)
 ├── 📁 src/                      # Código fuente principal
 │   ├── 📁 models/               # Modelos de datos
 │   │   ├── 📄 class_patient.py
@@ -135,6 +136,7 @@ extractor-app/
 │   ├── 📄 ui_Xlsx.py
 │   └── 📄 ui_Json.py
 └── 📁 assets/                   # Recursos estáticos
+    └── 📄 requirements.txt      # Dependencias de Python
 ```
 
 ## 🔧 Desarrollo
@@ -174,8 +176,11 @@ extractor-app/
 
 **Solución:**
 ```powershell
-# Configurar PYTHONPATH
+# Configurar PYTHONPATH manualmente
 $env:PYTHONPATH = "$(Get-Location)\src"
+
+# O usar el script de configuración
+config\setup_env.ps1
 ```
 
 ### Error: "cannot import name 'Patient'"
@@ -190,6 +195,14 @@ $env:PYTHONPATH = "$(Get-Location)\src"
 ```powershell
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 ```
+
+### Scripts de configuración no encontrados
+
+**Nota importante:** Los scripts de configuración ahora se encuentran en la carpeta `config/`. Ejecuta:
+```powershell
+config\setup_env.ps1
+```
+En lugar de `.\setup_env.ps1`
 
 ### Aplicación no muestra interfaz
 
