@@ -13,7 +13,7 @@ Una aplicación de escritorio para la extracción y procesamiento de datos de ar
 
 ## 📋 Requisitos del Sistema
 
-- **Python**: 3.9 o superior
+- **Python**: 3.13.0
 - **Sistema Operativo**: Windows 10/11
 - **Memoria**: 4GB RAM mínimo
 - **Espacio**: 500MB disponibles
@@ -29,16 +29,11 @@ cd extractor-app
 
 ### 2. Crear Entorno Virtual
 
-Ejecuta **uno** de los siguientes comandos según tu preferencia:
+Ejecuta el siguiente comando:
 
-#### **Opción A: Con Python**
+#### **Con Python**
 ```bash
 python -m venv .venv
-```
-
-#### **Opción B: Con virtualenv (si está instalado)**
-```bash
-virtualenv .venv
 ```
 
 ### 3. Activar Entorno Virtual
@@ -164,16 +159,6 @@ extractor-app/
 2. Definir clase con Pydantic
 3. Importar en `class_extraction.py`
 
-### Ejecutar Tests
-
-```bash
-# Activar entorno
-.\setup_env.ps1
-
-# Ejecutar tests individuales
-python src\Scripts\extraction_data\class_extraction.py
-```
-
 ## 📦 Dependencias Principales
 
 | Dependencia | Versión | Propósito |
@@ -213,14 +198,6 @@ Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 2. Archivos UI generados
 3. Imports de UI correctos
 
-## 🤝 Contribuir
-
-1. **Fork** el repositorio
-2. Crear **rama feature** (`git checkout -b feature/nueva-funcionalidad`)
-3. **Commit** cambios (`git commit -am 'Agregar nueva funcionalidad'`)
-4. **Push** a la rama (`git push origin feature/nueva-funcionalidad`)
-5. Crear **Pull Request**
-
 ## 📝 Changelog
 
 ### v1.0.0 (Actual)
@@ -231,7 +208,7 @@ Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 
 ## 👥 Autores
 
-- **KillahBlitz** - *Desarrollo inicial* - [GitHub](https://github.com/KillahBlitz)
+- **KillahBlitz y KapauCastle**- *Desarrollo inicial* - [GitHub KillabBlitz](https://github.com/KillahBlitz) [GitHub KapauCastle](https://github.com/KapauCastle)
 
 ## 📄 Licencia
 
