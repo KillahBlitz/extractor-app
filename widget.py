@@ -9,6 +9,13 @@ class MainWindow(QMainWindow):
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
         self.setWindowTitle("Extractor App")
+        self.ui.widget_xlsx.hide()
+        #buttons
+        self.ui.btn_exit.clicked.connect(self.close)
+        self.ui.btn_excel.clicked.connect(self.show_xlsx)
+    
+    def show_xlsx(self):
+        self.ui.widget_xlsx.show()
 
 
 if __name__ == "__main__":

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'MainUivezNzw.ui'
+## Form generated from reading UI file 'MainUiWdxxck.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.10.0
 ##
@@ -191,16 +191,16 @@ class Ui_MainWindow(object):
         self.horizontalLayout_2 = QHBoxLayout(self.horizontalLayoutWidget)
         self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
         self.horizontalLayout_2.setContentsMargins(0, 0, 0, 0)
-        self.btn_json_3 = QPushButton(self.horizontalLayoutWidget)
-        self.btn_json_3.setObjectName(u"btn_json_3")
-        self.btn_json_3.setFont(font1)
+        self.btn_reload = QPushButton(self.horizontalLayoutWidget)
+        self.btn_reload.setObjectName(u"btn_reload")
+        self.btn_reload.setFont(font1)
 
-        self.horizontalLayout_2.addWidget(self.btn_json_3)
+        self.horizontalLayout_2.addWidget(self.btn_reload)
 
-        self.btn_json_2 = QPushButton(self.horizontalLayoutWidget)
-        self.btn_json_2.setObjectName(u"btn_json_2")
-        self.btn_json_2.setFont(font1)
-        self.btn_json_2.setStyleSheet(u"QPushButton {\n"
+        self.btn_exit = QPushButton(self.horizontalLayoutWidget)
+        self.btn_exit.setObjectName(u"btn_exit")
+        self.btn_exit.setFont(font1)
+        self.btn_exit.setStyleSheet(u"QPushButton {\n"
 "    background-color: #e3171a;\n"
 "}\n"
 "\n"
@@ -209,7 +209,7 @@ class Ui_MainWindow(object):
 "    color: #e3171a;\n"
 "}")
 
-        self.horizontalLayout_2.addWidget(self.btn_json_2)
+        self.horizontalLayout_2.addWidget(self.btn_exit)
 
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QMenuBar(MainWindow)
@@ -238,7 +238,7 @@ class Ui_MainWindow(object):
         self.consulation_result.setText(QCoreApplication.translate("MainWindow", u"-", None))
         self.history_label.setText(QCoreApplication.translate("MainWindow", u"Antecedentes Cargados", None))
         self.history_result.setText(QCoreApplication.translate("MainWindow", u"-", None))
-        self.btn_json_3.setText(QCoreApplication.translate("MainWindow", u"Reload", None))
-        self.btn_json_2.setText(QCoreApplication.translate("MainWindow", u"Exit", None))
+        self.btn_reload.setText(QCoreApplication.translate("MainWindow", u"Reload", None))
+        self.btn_exit.setText(QCoreApplication.translate("MainWindow", u"Exit", None))
     # retranslateUi
 
