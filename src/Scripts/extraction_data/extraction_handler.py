@@ -14,9 +14,11 @@ def upload_xlsx_file():
         df_history = pd.read_excel(file_path, sheet_name="antecedentes")
         if df_patients is None or df_consulation is None or df_history is None:
             return None
-        extractor.get_patient_data(df_patients)
-        extractor.get_consulation_data(df_consulation)
-        extractor.get_history_data(df_history)
+        patients = extractor.get_patient_data(df_patients)
+        consulations = extractor.get_consulation_data(df_consulation)
+        histories = extractor.get_history_data(df_history)
+
+        print(f"Pacientes extraídos: {len(patients)} lista: {patients}")
         return True
 
     except Exception as e:
