@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1129</width>
-    <height>484</height>
+    <height>497</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,9 +17,9 @@
    <property name="geometry">
     <rect>
      <x>0</x>
-     <y>10</y>
+     <y>0</y>
      <width>1121</width>
-     <height>471</height>
+     <height>481</height>
     </rect>
    </property>
    <widget class="QWidget" name="charge_box" native="true">
@@ -61,7 +61,7 @@
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="btn_charge">
+       <widget class="QPushButton" name="btn_upload_xlsx">
         <property name="font">
          <font>
           <family>Leelawadee UI</family>

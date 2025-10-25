@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'XlsxYnpqbA.ui'
+## Form generated from reading UI file 'XlsxGycnPu.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.10.0
 ##
@@ -22,10 +22,10 @@ class Ui_Form(object):
     def setupUi(self, Form):
         if not Form.objectName():
             Form.setObjectName(u"Form")
-        Form.resize(1129, 484)
+        Form.resize(1129, 497)
         self.widget_xlsx = QWidget(Form)
         self.widget_xlsx.setObjectName(u"widget_xlsx")
-        self.widget_xlsx.setGeometry(QRect(0, 10, 1121, 471))
+        self.widget_xlsx.setGeometry(QRect(0, 0, 1121, 481))
         self.charge_box = QWidget(self.widget_xlsx)
         self.charge_box.setObjectName(u"charge_box")
         self.charge_box.setGeometry(QRect(920, 390, 201, 71))
@@ -46,13 +46,13 @@ class Ui_Form(object):
 
         self.verticalLayout_3.addWidget(self.ChargeLabel)
 
-        self.btn_charge = QPushButton(self.verticalLayoutWidget_2)
-        self.btn_charge.setObjectName(u"btn_charge")
+        self.btn_upload_xlsx = QPushButton(self.verticalLayoutWidget_2)
+        self.btn_upload_xlsx.setObjectName(u"btn_upload_xlsx")
         font1 = QFont()
         font1.setFamilies([u"Leelawadee UI"])
         font1.setPointSize(12)
-        self.btn_charge.setFont(font1)
-        self.btn_charge.setStyleSheet(u"QPushButton {\n"
+        self.btn_upload_xlsx.setFont(font1)
+        self.btn_upload_xlsx.setStyleSheet(u"QPushButton {\n"
 "    background-color: #24d467;\n"
 "}\n"
 "\n"
@@ -61,7 +61,7 @@ class Ui_Form(object):
 "    color: #24d467;\n"
 "}")
 
-        self.verticalLayout_3.addWidget(self.btn_charge)
+        self.verticalLayout_3.addWidget(self.btn_upload_xlsx)
 
         self.widget_result_xlsx = QWidget(self.widget_xlsx)
         self.widget_result_xlsx.setObjectName(u"widget_result_xlsx")
@@ -144,7 +144,7 @@ class Ui_Form(object):
     def retranslateUi(self, Form):
         Form.setWindowTitle(QCoreApplication.translate("Form", u"Form", None))
         self.ChargeLabel.setText(QCoreApplication.translate("Form", u"Cargar Excel", None))
-        self.btn_charge.setText(QCoreApplication.translate("Form", u"Cargar", None))
+        self.btn_upload_xlsx.setText(QCoreApplication.translate("Form", u"Cargar", None))
         self.patients_label.setText(QCoreApplication.translate("Form", u"Pacientes Cargados", None))
         self.patients_result.setText(QCoreApplication.translate("Form", u"-", None))
         self.consulation_label.setText(QCoreApplication.translate("Form", u"Consultas Cargadas", None))

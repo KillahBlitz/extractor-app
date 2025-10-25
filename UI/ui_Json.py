@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'JsonbjAnEG.ui'
+## Form generated from reading UI file 'JsonbjBmOx.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.10.0
 ##
@@ -22,7 +22,7 @@ class Ui_Form(object):
     def setupUi(self, Form):
         if not Form.objectName():
             Form.setObjectName(u"Form")
-        Form.resize(1131, 483)
+        Form.resize(1131, 490)
         self.widget_xlsx = QWidget(Form)
         self.widget_xlsx.setObjectName(u"widget_xlsx")
         self.widget_xlsx.setGeometry(QRect(0, 0, 1121, 471))
@@ -46,13 +46,13 @@ class Ui_Form(object):
 
         self.verticalLayout_3.addWidget(self.ChargeLabel)
 
-        self.btn_charge = QPushButton(self.verticalLayoutWidget_2)
-        self.btn_charge.setObjectName(u"btn_charge")
+        self.btn_upload_json = QPushButton(self.verticalLayoutWidget_2)
+        self.btn_upload_json.setObjectName(u"btn_upload_json")
         font1 = QFont()
         font1.setFamilies([u"Leelawadee UI"])
         font1.setPointSize(12)
-        self.btn_charge.setFont(font1)
-        self.btn_charge.setStyleSheet(u"QPushButton {\n"
+        self.btn_upload_json.setFont(font1)
+        self.btn_upload_json.setStyleSheet(u"QPushButton {\n"
 "    background-color: #F54927;\n"
 "}\n"
 "\n"
@@ -61,12 +61,12 @@ class Ui_Form(object):
 "    color: #F54927;\n"
 "}")
 
-        self.verticalLayout_3.addWidget(self.btn_charge)
+        self.verticalLayout_3.addWidget(self.btn_upload_json)
 
-        self.widget_result_xlsx = QWidget(self.widget_xlsx)
-        self.widget_result_xlsx.setObjectName(u"widget_result_xlsx")
-        self.widget_result_xlsx.setGeometry(QRect(10, 0, 911, 451))
-        self.horizontalLayoutWidget_2 = QWidget(self.widget_result_xlsx)
+        self.widget_result_json = QWidget(self.widget_xlsx)
+        self.widget_result_json.setObjectName(u"widget_result_json")
+        self.widget_result_json.setGeometry(QRect(10, 0, 911, 451))
+        self.horizontalLayoutWidget_2 = QWidget(self.widget_result_json)
         self.horizontalLayoutWidget_2.setObjectName(u"horizontalLayoutWidget_2")
         self.horizontalLayoutWidget_2.setGeometry(QRect(0, 70, 911, 80))
         self.horizontalLayout_4 = QHBoxLayout(self.horizontalLayoutWidget_2)
@@ -144,7 +144,7 @@ class Ui_Form(object):
     def retranslateUi(self, Form):
         Form.setWindowTitle(QCoreApplication.translate("Form", u"Form", None))
         self.ChargeLabel.setText(QCoreApplication.translate("Form", u"Cargar JSON", None))
-        self.btn_charge.setText(QCoreApplication.translate("Form", u"Cargar", None))
+        self.btn_upload_json.setText(QCoreApplication.translate("Form", u"Cargar", None))
         self.patients_label.setText(QCoreApplication.translate("Form", u"Pacientes Cargados", None))
         self.patients_result.setText(QCoreApplication.translate("Form", u"-", None))
         self.consulation_label.setText(QCoreApplication.translate("Form", u"Consultas Cargadas", None))
