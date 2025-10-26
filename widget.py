@@ -1,4 +1,8 @@
 import sys
+# Configurar rutas del proyecto
+from config.config import setup_project_paths
+setup_project_paths()
+
 from PySide6.QtWidgets import QApplication, QMainWindow, QWidget, QMessageBox
 from UI.ui_MainUi import Ui_MainWindow
 from UI.ui_Xlsx import Ui_Form as Ui_Form_Xlsx

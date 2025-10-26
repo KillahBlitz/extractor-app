@@ -1,27 +1,32 @@
-import pandas as pd
-from PySide6.QtWidgets import QFileDialog
+from Scripts.extraction_data.class_extraction import Extractor
+from Scripts.injection_data.injector_handler import inject_data_to_db
 
+from PySide6.QtWidgets import QFileDialog
+import pandas as pd
 
 def upload_xlsx_file():
-    file_path, _ = QFileDialog.getOpenFileName(None,"Seleccionar archivo Excel","","Archivos Excel (*.xlsx *.xls);;Todos los archivos (*)")
+    file_path, _ = QFileDialog.getOpenFileName(None,"Seleccionar archivo Excel","","Archivos Excel (*.xlsx *.xls);")
     if not file_path:
         return None
     try:
-        #buscar la hoja llamada "pacientes"
+        extractor = Extractor()
         df_patients = pd.read_excel(file_path, sheet_name="pacientes")
-        #buscar la hoja llamada "consultas"
         df_consulation = pd.read_excel(file_path, sheet_name="consultas")
-        #buscar la hoja llamada "antecedentes"
         df_history = pd.read_excel(file_path, sheet_name="antecedentes")
         if df_patients is None or df_consulation is None or df_history is None:
             return None
-        return df_patients, df_consulation, df_history
+        patients = extractor.get_patient_data(df_patients)
+        consulations = extractor.get_consulation_data(df_consulation)
+        histories = extractor.get_history_data(df_history)
+        inject_data_to_db(patients, consulations, histories)
+        return True
+
     except Exception as e:
         print("Error al leer el archivo Excel:", e)
         return None
     
 def upload_json_file():
-    file_path, _ = QFileDialog.getOpenFileName(None,"Seleccionar archivo JSON","","Archivos JSON (*.json);;Todos los archivos (*)")
+    file_path, _ = QFileDialog.getOpenFileName(None,"Seleccionar archivo JSON","","Archivos JSON (*.json);")
     if not file_path:
         return None
     try:
