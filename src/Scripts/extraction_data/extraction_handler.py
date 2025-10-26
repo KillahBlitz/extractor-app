@@ -1,4 +1,5 @@
 from Scripts.extraction_data.class_extraction import Extractor
+from Scripts.injection_data.injector_handler import inject_data_to_db
 
 from PySide6.QtWidgets import QFileDialog
 import pandas as pd
@@ -17,7 +18,7 @@ def upload_xlsx_file():
         patients = extractor.get_patient_data(df_patients)
         consulations = extractor.get_consulation_data(df_consulation)
         histories = extractor.get_history_data(df_history)
-        
+        inject_data_to_db(patients, consulations, histories)
         return True
 
     except Exception as e:
