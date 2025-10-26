@@ -6,5 +6,5 @@ class Consulation(BaseModel):
     date: date
     weight: float
     height: float
-    observations: str 
-    medications: str = ""   
+    pc: float
+    observations: str

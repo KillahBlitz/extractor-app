@@ -1,4 +1,5 @@
 from pydantic import BaseModel
+from datetime import date
 
 class Patient(BaseModel):
     name: str
@@ -7,3 +8,5 @@ class Patient(BaseModel):
     weight: float
     height: float
     total_consulation: int = 0
+    birthdate: date
+    apgar: str

@@ -16,14 +16,18 @@ class Validator:
             type_patient = str(row['Tipo de paciente'])
             weight = float(row['Peso'])
             height = float(row['Altura'])
-            total_consultations = float(row['Numero totales de registros'])
+            total_consultation = int(row['Numero totales de registros'])
+            apgar = str(row['APGAR'])
+            date_raw = row['Fecha de Nacimiento'].date()
             patient = Patient(
                 name=name,
                 age=age,
                 type_patient=type_patient,
                 weight=weight,
                 height=height,
-                total_consultations=total_consultations
+                total_consultation=total_consultation,
+                birthdate=date_raw,
+                apgar=apgar
             )
             self.patient_valid_count += 1
             return patient
@@ -37,21 +41,16 @@ class Validator:
             weight = float(row['Peso'])
             height = float(row['Altura'])
             observations = str(row['Observaciones'])
-            medications = str(row['Medicamentos'])
-            
-            fecha_raw = row['Fecha']
-            if hasattr(fecha_raw, 'date'): 
-                consult_date = fecha_raw.date()
-            else:
-                consult_date = fecha_raw.date()
+            pc = float(row['PC'])
+            fecha_raw = row['Fecha'].date()
 
             consulation = Consulation(
                 name=name,
-                date=consult_date,
+                date=fecha_raw,
                 weight=weight,
                 height=height,
                 observations=observations,
-                medications=medications
+                pc=pc
             )
             self.consulation_valid_count += 1
             return consulation
