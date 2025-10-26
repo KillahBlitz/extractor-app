@@ -19,8 +19,9 @@ def upload_xlsx_file():
         patients = extractor.get_patient_data(df_patients)
         consulations = extractor.get_consulation_data(df_consulation)
         histories = extractor.get_history_data(df_history)
-        
-        pi, ci, hi = inject_data_to_db(patients, consulations, histories)
+
+        injection_result = inject_data_to_db(patients, consulations, histories)
+        injected_counts = injection_result.get('injected_counts', {}) if injection_result.get('success') else {}
         
         return {
             'success': True,
@@ -31,14 +32,14 @@ def upload_xlsx_file():
                 'patients_valid': len(patients),
                 'consulations_valid': len(consulations),
                 'histories_valid': len(histories),
-                'patients_injected': pi,
-                'consulations_injected': ci,
-                'histories_injected': hi
+                'patients_injected': injected_counts.get('patients', 0),
+                'consulations_injected': injected_counts.get('consulations', 0),
+                'histories_injected': injected_counts.get('histories', 0)
             }
         }
 
     except Exception as e:
-        print("Error al leer el archivo Excel:", e)
+        print(f"❌ Error al leer el archivo Excel: {e}")
         return None
     
 def upload_json_file():
