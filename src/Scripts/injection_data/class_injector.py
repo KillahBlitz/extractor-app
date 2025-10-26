@@ -1,17 +1,22 @@
 import sqlite3
 import os
 
-class Injector:  # ✅ Cambiado de 'Inyector' a 'Injector'
+class Injector:
     patient_inject_count = 0
     consulation_inject_count = 0
     history_inject_count = 0
 
-    def __init__(self):
-        self.data_dir = "data"
-        if not os.path.exists(self.data_dir):
-            os.makedirs(self.data_dir)
-
-        self.db_path = os.path.join(self.data_dir, "database.db")
+    def __init__(self, db_path: str = None):
+        if db_path:
+            db_dir = os.path.dirname(db_path)
+            if db_dir and not os.path.exists(db_dir):
+                os.makedirs(db_dir)
+            self.db_path = db_path
+        else:
+            self.data_dir = "data"
+            if not os.path.exists(self.data_dir):
+                os.makedirs(self.data_dir)
+            self.db_path = os.path.join(self.data_dir, "database.db")
 
         self._create_tables()
 
@@ -53,6 +58,9 @@ class Injector:  # ✅ Cambiado de 'Inyector' a 'Injector'
             
         except Exception as e:
             print(f"❌ Error al crear las tablas: {e}")
+
+    def create_tables(self):
+        return self._create_tables()
 
     def inject_data(self, patients: list, consulations: list, histories: list):
         try:
