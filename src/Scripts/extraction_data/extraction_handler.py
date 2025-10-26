@@ -15,11 +15,27 @@ def upload_xlsx_file():
         df_history = pd.read_excel(file_path, sheet_name="antecedentes")
         if df_patients is None or df_consulation is None or df_history is None:
             return None
+        
         patients = extractor.get_patient_data(df_patients)
         consulations = extractor.get_consulation_data(df_consulation)
         histories = extractor.get_history_data(df_history)
-        inject_data_to_db(patients, consulations, histories)
-        return True
+        
+        pi, ci, hi = inject_data_to_db(patients, consulations, histories)
+        
+        return {
+            'success': True,
+            'counters': {
+                'patients_loaded': extractor.PatientCounter,
+                'consulations_loaded': extractor.ConsulationCounter,
+                'histories_loaded': extractor.HistoryCounter,
+                'patients_valid': len(patients),
+                'consulations_valid': len(consulations),
+                'histories_valid': len(histories),
+                'patients_injected': pi,
+                'consulations_injected': ci,
+                'histories_injected': hi
+            }
+        }
 
     except Exception as e:
         print("Error al leer el archivo Excel:", e)

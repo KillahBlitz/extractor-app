@@ -14,6 +14,7 @@ class Extractor(BaseModel):
         validator = Validator()
         patien_list = []
         self.PatientCounter = len(df)
+
         for index, row in df.iterrows():
             patient = validator.validate_patient_data(row=row)
             if patient:

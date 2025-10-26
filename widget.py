@@ -59,9 +59,27 @@ class MainWindow(QMainWindow):
                 self.json_ui.btn_upload_json.clicked.connect(self.show_json_results)
     
     def show_xlsx_results(self):
-        status = upload_xlsx_file()
-        if hasattr(self.xlsx_ui, 'widget_result_xlsx') and status:
-            self.xlsx_ui.widget_result_xlsx.show()
+        result = upload_xlsx_file()
+        if result and isinstance(result, dict) and result.get('success'):
+            if hasattr(self.xlsx_ui, 'widget_result_xlsx'):
+                self.xlsx_ui.widget_result_xlsx.show()
+            counters = result.get('counters', {})
+            
+            # Datos cargados desde Excel
+            self.xlsx_ui.patients_load.setText(str(counters.get('patients_loaded', 0)))
+            self.xlsx_ui.consulation_load.setText(str(counters.get('consulations_loaded', 0)))
+            self.xlsx_ui.history_load.setText(str(counters.get('histories_loaded', 0)))
+            
+            # Datos validados
+            self.xlsx_ui.patients_valid.setText(str(counters.get('patients_valid', 0)))
+            self.xlsx_ui.consulation_valid.setText(str(counters.get('consulations_valid', 0)))
+            self.xlsx_ui.history_valid.setText(str(counters.get('histories_valid', 0)))
+            
+            # Datos guardados (por ahora iguales a los validados)
+            self.xlsx_ui.patients_result.setText(str(counters.get('patients_injected', 0)))
+            self.xlsx_ui.consulation_result.setText(str(counters.get('consulations_injected', 0)))
+            self.xlsx_ui.history_result.setText(str(counters.get('histories_injected', 0)))
+            
         else:
             self.error_message("Error al cargar el archivo Excel.")
     
