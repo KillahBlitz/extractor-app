@@ -1,7 +1,7 @@
 import sqlite3
 import os
 
-class Inyector:
+class Injector:  # ✅ Cambiado de 'Inyector' a 'Injector'
     patient_inject_count = 0
     consulation_inject_count = 0
     history_inject_count = 0
