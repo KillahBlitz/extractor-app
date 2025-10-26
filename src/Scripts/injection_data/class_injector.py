@@ -32,7 +32,9 @@ class Injector:
                             type_patient TEXT DEFAULT 'N/A',
                             weight REAL NOT NULL,
                             height REAL NOT NULL,
-                            total_consulation INTEGER DEFAULT 0
+                            total_consulation INTEGER DEFAULT 0,
+                            birthdate DATE NOT NULL,
+                            apgar TEXT NOT NULL
                           )''')
 
             cursor.execute('''CREATE TABLE IF NOT EXISTS consulations (
@@ -41,8 +43,8 @@ class Injector:
                             date DATE NOT NULL,
                             weight REAL NOT NULL,
                             height REAL NOT NULL,
-                            observations TEXT NOT NULL,
-                            medications TEXT DEFAULT ''
+                            pc REAL NOT NULL,
+                            observations TEXT NOT NULL
                           )''')
             
             cursor.execute('''CREATE TABLE IF NOT EXISTS histories (
@@ -68,17 +70,17 @@ class Injector:
             cursor = conn.cursor()
 
             for patient in patients:
-                cursor.execute('''INSERT INTO patients (name, age, type_patient, weight, height, total_consulation)
-                                  VALUES (?, ?, ?, ?, ?, ?)''',
+                cursor.execute('''INSERT INTO patients (name, age, type_patient, weight, height, total_consulation, birthdate, apgar)
+                                  VALUES (?, ?, ?, ?, ?, ?, ?, ?)''',
                                (patient.name, patient.age, patient.type_patient, patient.weight,
-                                patient.height, patient.total_consulation))
+                                patient.height, patient.total_consulation, patient.birthdate, patient.apgar))
                 self.patient_inject_count += 1
 
             for consulation in consulations:
-                cursor.execute('''INSERT INTO consulations (name, date, weight, height, observations, medications)
+                cursor.execute('''INSERT INTO consulations (name, date, weight, height, pc, observations)
                                   VALUES (?, ?, ?, ?, ?, ?)''',
                                (consulation.name, consulation.date, consulation.weight,
-                                consulation.height, consulation.observations, consulation.medications))
+                                consulation.height, consulation.pc, consulation.observations))
                 self.consulation_inject_count += 1
 
             for history in histories:
