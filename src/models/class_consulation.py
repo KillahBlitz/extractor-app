@@ -1,9 +1,9 @@
 from pydantic import BaseModel
-from datetime import datetime
+from datetime import date
 
 class Consulation(BaseModel):
-    id_patient: int
-    date: datetime
+    name: str
+    date: date
     weight: float
     height: float
     observations: str 

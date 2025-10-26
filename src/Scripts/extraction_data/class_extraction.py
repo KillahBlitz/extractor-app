@@ -10,10 +10,10 @@ class Extractor(BaseModel):
     ConsulationCounter: int = 0
     HistoryCounter: int = 0
 
-    @staticmethod
-    def get_patient_data(df: pd.DataFrame) -> list[Patient]:
+    def get_patient_data(self, df: pd.DataFrame) -> list[Patient]:
         validator = Validator()
         patien_list = []
+        self.PatientCounter = len(df)
         for index, row in df.iterrows():
             patient = validator.validate_patient_data(row=row)
             if patient:
@@ -22,12 +22,26 @@ class Extractor(BaseModel):
                 print(f"Fila {index} no válida y será omitida.")
         return patien_list
 
-    @staticmethod
-    def get_consulation_data(df: pd.DataFrame) -> list[Consulation]:
-        print(df.head())
-        return []
-        
-    @staticmethod
-    def get_history_data(df: pd.DataFrame) -> list[History]:
-        print(df.head())
-        return []
+    def get_consulation_data(self, df: pd.DataFrame) -> list[Consulation]:
+        validator = Validator()
+        consulation_list = []
+        self.ConsulationCounter = len(df)
+        for index, row in df.iterrows():
+            consulation = validator.validate_consulation_data(row=row)
+            if consulation:
+                consulation_list.append(consulation)
+            else:
+                print(f"Fila {index} no válida y será omitida.")
+        return consulation_list
+
+    def get_history_data(self, df: pd.DataFrame) -> list[History]:
+        validator = Validator()
+        history_list = []
+        self.HistoryCounter = len(df)
+        for index, row in df.iterrows():
+            history = validator.validate_history_data(row=row)
+            if history:
+                history_list.append(history)
+            else:
+                print(f"Fila {index} no válida y será omitida.")
+        return history_list
