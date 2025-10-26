@@ -1,1 +1,9 @@
-.qtcreator/
+.venv/
+*.autosave
+
+.env
+
+__pycache__/
+*.pyc
+
+__init__.py
