@@ -217,10 +217,6 @@ extractor-app/
 3. **✅ Validación**: Cada registro se valida con modelos Pydantic
 4. **💾 Almacenamiento**: Datos válidos se guardan en SQLite
 5. **📈 Reporte**: Se muestran contadores de registros procesados
-│   └── 📄 ui_Json.py
-└── 📁 assets/                   # Recursos estáticos
-    └── 📄 requirements.txt      # Dependencias de Python
-```
 
 ## 🔧 Desarrollo
 
@@ -242,7 +238,9 @@ extractor-app/
 
 1. Crear archivo en `src/models/`
 2. Definir clase con Pydantic
-3. Importar en `class_extraction.py`
+3. Actualizar validador en `src/Scripts/validation_data/`
+4. Modificar extractor en `src/Scripts/extraction_data/`
+5. Actualizar injector para nueva tabla en SQLite
 
 ## 📦 Dependencias Principales
 
@@ -323,30 +321,7 @@ En lugar de `.\setup_env.ps1`
 3. Tipos de datos correctos (fechas en YYYY-MM-DD)
 4. Revisar mensajes de validación en consola
 
-## 🔧 Desarrollo
-
-### Modificar la Interfaz
-
-1. **Abrir Qt Designer:**
-   ```bash
-   pyside6-designer
-   ```
-
-2. **Editar archivos .ui** en la carpeta UI/
-
-3. **Regenerar archivos Python:**
-   ```bash
-   pyside6-uic archivo.ui -o ui_archivo.py
-   ```
-
-### Agregar Nuevos Modelos
-
-1. Crear modelo en `src/models/`
-2. Actualizar validador en `src/Scripts/validation_data/`
-3. Modificar extractor en `src/Scripts/extraction_data/`
-4. Actualizar injector para nueva tabla
-
-## 📊 Características Técnicas
+##  Características Técnicas
 
 - **Patrón MVC**: Separación clara entre modelo, vista y controlador
 - **Validación robusta**: Pydantic para verificar tipos y constraints
@@ -354,15 +329,6 @@ En lugar de `.\setup_env.ps1`
 - **Logging**: Mensajes informativos para debugging
 - **Modularidad**: Componentes independientes y reutilizables
 - **Configuración centralizada**: Scripts y paths organizados
-
-## 📈 Roadmap
-
-- [ ] Soporte para más formatos de archivo (CSV, XML)
-- [ ] Interfaz web complementaria
-- [ ] Exportación de reportes en PDF
-- [ ] Backup automático de base de datos
-- [ ] Configuración de validaciones personalizadas
-- [ ] API REST para integración externa
 
 ---
 
